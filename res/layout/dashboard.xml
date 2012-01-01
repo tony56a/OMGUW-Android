@@ -1,0 +1,119 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/db1_root"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <LinearLayout android:layout_height="wrap_content" android:id="@+id/LinearLayout02" android:layout_width="match_parent">
+            <ImageView android:id="@+id/ImageView01" android:layout_width="wrap_content" android:layout_height="match_parent" android:background="@drawable/title_background_selector"  android:src="@drawable/omguw"/>
+
+            <TextView
+                android:id="@+id/TextView01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/title_background"
+                android:text="             " />
+
+            <ImageView
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:background="@drawable/title_background_selector"
+                android:clickable="true"
+                android:focusable="true"
+                android:onClick="switchmode"
+                android:scaleType="center"
+                android:src="@drawable/ic_menu_more"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/omguw" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.29"
+            android:background="@color/title_background"
+            android:text="             " />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/LinearLayout01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="2dip" >
+
+            <Button
+                android:id="@+id/Button05"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/omg_select"
+                android:onClick="onClickOMG"
+                android:text="OMG" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:padding="2dip" >
+
+            <Button
+                android:id="@+id/home_btn_feature1"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/mc_select"
+                android:onClick="onClickMC"
+                android:text="Missed Connections" />
+
+            <Button
+                android:id="@+id/home_btn_feature2"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/ilu_select"
+                android:onClick="onClickILU"
+                android:text="ILU" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:padding="6dip" >
+
+            <Button
+                android:id="@+id/Button02"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/oh_select"
+                android:onClick="onClickOH"
+                android:text="Overheard" />
+
+            <Button
+                android:id="@+id/Button01"
+                style="@style/HomeButton"
+                android:drawableTop="@drawable/ask_select"
+                android:onClick="onClickAsk"
+                android:text="Ask" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

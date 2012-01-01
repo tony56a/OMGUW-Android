@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/omgbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:onClick="returnResult"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip"
+        android:text="OMG"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dip"
+        android:clickable="true"  />
+
+    <TextView
+          android:id="@+id/mcbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip"
+        android:text="Missed Connections"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dip"
+        android:onClick="returnResult"
+        android:clickable="true"  />
+
+    <TextView
+        android:id="@+id/ilubtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip"
+        android:text="ILU"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dip"
+        android:onClick="returnResult"
+        android:clickable="true" />
+
+    <TextView
+        android:id="@+id/ohbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip"
+        android:text="Overheard"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dip"
+        android:onClick="returnResult"
+        android:clickable="true"  />
+
+    <TextView
+        android:id="@+id/askbtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:paddingBottom="20dip"
+        android:paddingTop="20dip"
+        android:text="Ask"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="30dip"
+        android:onClick="returnResult"
+        android:clickable="true"  />
+
+</LinearLayout>

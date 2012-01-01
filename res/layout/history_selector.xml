@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Begin Date"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <DatePicker
+        android:id="@+id/datePicker1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:startYear="2009" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="End Date"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <DatePicker
+        android:id="@+id/datePicker2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:startYear="2009" />
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:text="Get Posts" 
+        android:onClick="returnDates"/>
+
+</LinearLayout>
