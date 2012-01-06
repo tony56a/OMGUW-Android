@@ -57,41 +57,32 @@ public class PostList extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		//get the URL and post type(to get the posts and to properly navigate between
-		//types,respectively)
 		Bundle extras = getIntent().getExtras(); 
 		url=extras.getString("URL");
 		type = extras.getInt("TYPE");
 		
-		//Create a new arraylist and arrayadapter to populate the listview in the layout
 		list = new ArrayList<OMG>();
 		this.m_adapter =new OMGAdapter(this,R.layout.listitem,list);
 		setListAdapter(this.m_adapter);
+		ListView lv = getListView();
 		
 		
-		//set the post retriveal in another thread,and run it
 		viewList = new Runnable(){
 			
 			public void run() {
 				getContent();
 			}
 		};
+		
+		
 		Thread thread =  new Thread(null, viewList , "GetData");
 		thread.start();
-		
-		//display a progressdialog while posts are being fetched
 		m_ProgressDialog = ProgressDialog.show(PostList.this,    
 	              "Please wait...", "Retrieving posts ...", true);
 
-		//get the listview object,and set a onitemclick handler
-		ListView lv = getListView();
 		lv.setOnItemClickListener(new OnItemClickListener() {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				
-				//when the item is clicked, then the comments activity 
-				//will be started with the content of that post,as well
-				//as the url for the post's comments
 				Intent detailIntent = new Intent(getApplicationContext(),
 						PostDetails.class);
 
@@ -99,6 +90,7 @@ public class PostList extends ListActivity {
 				detailIntent.putExtra("DATE", list.get(position).getDate());
 				detailIntent.putExtra("TYPE", list.get(position).getType());
 				detailIntent.putExtra("URL", list.get(position).getCommentURL());
+
 
 				startActivity(detailIntent);
 				
