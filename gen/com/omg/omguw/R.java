@@ -94,7 +94,7 @@ public final class R {
     }
     public static final class style {
         public static final int HomeButton=0x7f060005;
-        public static final int TextBody=0x7f06000d;
+        public static final int TextBody=0x7f06000c;
         /**  Base application theme is the default theme. 
          */
         public static final int Theme=0x7f060000;
@@ -104,14 +104,13 @@ public final class R {
          */
         public static final int Theme_D1t=0x7f060001;
         public static final int Theme_D1tranlucent=0x7f060004;
-        public static final int TitleBar=0x7f060006;
         /** - <item name="android:background">@null</item> 
          */
-        public static final int TitleBarAction=0x7f060007;
-        public static final int TitleBarLogo=0x7f06000a;
-        public static final int TitleBarProgressIndicator=0x7f060008;
-        public static final int TitleBarSeparator=0x7f060009;
-        public static final int TitleBarSpring=0x7f06000b;
-        public static final int TitleBarText=0x7f06000c;
+        public static final int TitleBarAction=0x7f060006;
+        public static final int TitleBarLogo=0x7f060009;
+        public static final int TitleBarProgressIndicator=0x7f060007;
+        public static final int TitleBarSeparator=0x7f060008;
+        public static final int TitleBarSpring=0x7f06000a;
+        public static final int TitleBarText=0x7f06000b;
     }
 }

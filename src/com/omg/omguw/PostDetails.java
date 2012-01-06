@@ -132,7 +132,7 @@ public class PostDetails extends Activity {
 		System.out.println(value);
 
 		Intent navigateIntent = new Intent(getApplicationContext(),
-				AbcdActivity.class);
+				PostList.class);
 		switch (value) {
 		case 1:
 

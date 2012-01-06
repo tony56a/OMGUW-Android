@@ -16,6 +16,6 @@
 -->
 <resources>
     <color name="title_background">#ffcfcfcf</color>
-    <color name="title_selected">#ffffffff</color>
+    <color name="title_selected">#ff8A8A8A</color>
      <color name="black">#ff000000</color>
 </resources>

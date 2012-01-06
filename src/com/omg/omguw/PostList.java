@@ -42,7 +42,7 @@ import com.google.code.rome.android.repackaged.com.sun.syndication.io.FeedExcept
 
 
 
-public class AbcdActivity extends ListActivity {
+public class PostList extends ListActivity {
 
 	String url;
 	int type;
@@ -77,7 +77,7 @@ public class AbcdActivity extends ListActivity {
 		
 		Thread thread =  new Thread(null, viewList , "GetData");
 		thread.start();
-		m_ProgressDialog = ProgressDialog.show(AbcdActivity.this,    
+		m_ProgressDialog = ProgressDialog.show(PostList.this,    
 	              "Please wait...", "Retrieving posts ...", true);
 
 		lv.setOnItemClickListener(new OnItemClickListener() {
@@ -168,7 +168,7 @@ public class AbcdActivity extends ListActivity {
 			int value = data.getExtras().getInt("NAVICODE");
 			System.out.println(value);
 		Intent navigateIntent = new Intent(getApplicationContext(),
-				AbcdActivity.class);
+				PostList.class);
 		switch (value) {
 		case 1:
 			
@@ -207,7 +207,7 @@ public class AbcdActivity extends ListActivity {
 		else
 		{
 		
-			Intent historyIntent = new Intent(getApplicationContext(),AbcdActivity.class);
+			Intent historyIntent = new Intent(getApplicationContext(),PostList.class);
 			int beginDay = data.getExtras().getInt("BEGINDAY");
 			int beginMonth = data.getExtras().getInt("BEGINMONTH");
 			int beginYear = data.getExtras().getInt("BEGINYEAR");
@@ -220,7 +220,7 @@ public class AbcdActivity extends ListActivity {
 			
 			
 			Intent navigateIntent = new Intent(getApplicationContext(),
-					AbcdActivity.class);
+					PostList.class);
 			switch (type) {
 			case 1:
 
@@ -331,9 +331,19 @@ public class AbcdActivity extends ListActivity {
 				type = abc.getTitle().substring(1);
 				postLink = (SyndLinkImpl) abc.getLinks().get(1);
 	
+				int ID;
 				System.out.println(postLink.getHref());
-				list.add(new OMG(date,content,Integer.parseInt(type),postLink.getHref()));
-	
+				try
+				{
+					ID=Integer.parseInt(type);
+				}
+				catch(NumberFormatException e)
+				{
+					ID=10000;
+				}
+				
+					list.add(new OMG(date,content,ID,postLink.getHref()));
+				
 	
 			}
 		}
@@ -446,7 +456,14 @@ public class AbcdActivity extends ListActivity {
 				}
 				if(c!=null)
 				{
-					c.setText("ID: "+Integer.toString(entry.getType()));
+					if(Integer.toString(entry.getType())!=null)
+					{
+						c.setText("ID: "+Integer.toString(entry.getType()));
+					}
+					else
+					{
+						c.setText(entry.getType());
+					}
 				}
 			}
 			return v;
