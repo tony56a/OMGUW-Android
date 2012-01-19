@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 /**
- * @author applepie
+ * Main activity, implements a dashbar style layout
  *
  */
 public class MainActivity extends Activity {

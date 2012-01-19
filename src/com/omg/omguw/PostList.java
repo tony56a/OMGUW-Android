@@ -300,7 +300,6 @@ public class PostList extends ListActivity {
 		}
 	}
 
-	@SuppressWarnings("unchecked")
 	private void getContent()
 	{
 		SyndFeed feed = null;

@@ -6,24 +6,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 
+/**
+ * Navigation activity, changes the post list to the selected type
+ * (OMG,MC,ILU,OH,ASK)
+ */
 public class NavigateApp extends Activity {
 
 	 @Override
 	    protected void onCreate(Bundle savedInstanceState) {
 	        super.onCreate(savedInstanceState);
 
-	        // Setup the window
-	        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+//	        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
 	        setContentView(R.layout.navigation_layout);
 
 	        // Set result CANCELED in case the user backs out
 	        setResult(Activity.RESULT_CANCELED);
 	 }
 	 
+	 
+	 //onClick handler for the buttons in the layout
 	 public void returnResult(View v)
 	 {
-		  Intent intent = new Intent();
+		 //create a new intent to send information back to 
+		 //the starting activity
+		 Intent intent = new Intent();
         
+		 //get the id of the button pressed,
+		 //and set the desired post type accordingly
 		 int id = v.getId ();
 		 switch(id)
 		 {
@@ -44,6 +53,7 @@ public class NavigateApp extends Activity {
 	    	 break;
 		 }
 		 
+		 //set the result to OK, and return to the starting activity
 		 setResult(Activity.RESULT_OK, intent);
          finish();
 	 }

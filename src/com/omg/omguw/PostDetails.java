@@ -27,6 +27,10 @@ import com.google.code.rome.android.repackaged.com.sun.syndication.feed.synd.Syn
 import com.google.code.rome.android.repackaged.com.sun.syndication.fetcher.FeedFetcher;
 import com.google.code.rome.android.repackaged.com.sun.syndication.fetcher.impl.HttpURLFeedFetcher;
 
+/**
+ * Activity to display a paticular post, and its comments
+ *
+ */
 public class PostDetails extends Activity {
 
 	private String date;
@@ -44,23 +48,31 @@ public class PostDetails extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.post_details);
+		
+		//get the content from the intent that launched this activity
 		Bundle extras = getIntent().getExtras();
 		date = extras.getString("DATE");
 		content = (Spanned) extras.get("CONTENT");
 		ID = extras.getInt("TYPE");
 		commentURL = extras.getString("URL");
 
+		//get the views for the layout's post textviews,and set them
+		//to the appropriate content
 		TextView tv1 = (TextView) findViewById(R.id.textView1);
 		TextView tv2 = (TextView) findViewById(R.id.textView2);
 		TextView tv3 = (TextView) findViewById(R.id.textView3);
 		tv1.setText("Date: " + date);
 		tv2.setText("#: " + ID);
 		tv3.setText(content);
+		
 		final URLSpan[] spans = content.getSpans(0, content.length(),
 				URLSpan.class);
+		
 		if (spans.length > 0 && spans != null) {
 			tv3.setOnClickListener(new OnClickListener() {
 
+				//start on onclick listener, opening the first link in the post's content
+				//using an intent
 				public void onClick(View v) {
 					String url = spans[0].getURL();
 					Intent i = new Intent(Intent.ACTION_VIEW);
@@ -71,6 +83,7 @@ public class PostDetails extends Activity {
 			});
 		}
 
+		//setup an arraylist of comment objects to populate the comment list
 		commentList = new ArrayList<Comment>();
 
 		viewList = new Runnable() {
@@ -80,21 +93,39 @@ public class PostDetails extends Activity {
 			}
 		};
 
+		// run the comment retrieval process in another thread,
+		// and open a progressdialog to indicate that posts are being retrieved
 		Thread thread = new Thread(null, viewList, "GetData");
 		thread.start();
 		m_ProgressDialog = ProgressDialog.show(PostDetails.this,    
 	              "Please wait...", "Retrieving comments ...", true);
 	}
 
+	public void onDestroy() {
+		super.onDestroy();
+	}
+
+	public void onPause() {
+		super.onPause();
+	}
+	
+	/**
+	 * Method to post content online using the ACTION_SEND intent
+	 */
 	public void shareContent(View v) {
+		
+		//create a new intent 
 		Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
 		shareIntent.setType("text/plain");
 
+		//set the subject and text to appropriate content
 		shareIntent.putExtra(Intent.EXTRA_SUBJECT,
 				"Check out this cool post from OMGUW!");
 		shareIntent.putExtra(Intent.EXTRA_TEXT,
-				"\"" + (CharSequence) content.toString() + "\"");
+				"\"" + content.toString() + "\"");
 
+		//launch the intentchooser, allowing the user to select the
+		//application used to share the post
 		Intent intentChooser = Intent.createChooser(shareIntent,
 				"Choose an app to share this post with:");
 		this.startActivity(intentChooser);
@@ -112,13 +143,7 @@ public class PostDetails extends Activity {
 		this.finish();
 	}
 
-	public void onDestroy() {
-		super.onDestroy();
-	}
 
-	public void onPause() {
-		super.onPause();
-	}
 
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
