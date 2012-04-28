@@ -375,12 +375,14 @@ public class PostList extends ListActivity {
 
 	private Spanned process(String value) {
 
-		int first = value.indexOf("/>");
+		int firstOccurance  = value.indexOf(":");
+		int first = value.indexOf(":",firstOccurance+1 );
 		int last = value.indexOf("<div");
-
-		String convert = value.substring(first+2, last);
-		if(convert.indexOf(" ")==0)
-		{
+		String convert = value.substring(first+1,last);
+		convert = convert.replaceFirst("</span>", "");
+		convert = convert.replaceFirst("<br />", "");
+		convert = convert.replace("&nbsp;", "");
+		if(convert.indexOf(" ")==0){
 			convert = convert.substring(1);
 		}
 		Spanned returnValue = Html.fromHtml(convert);
